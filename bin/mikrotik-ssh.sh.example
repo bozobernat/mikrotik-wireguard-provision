@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# CSAK OLVASO router-wrapper. Egyetlen elvaras: RouterOS-parancs $1-ben,
+# kimenet a stdout-ra.  ./mikrotik-ssh.sh '/interface/wireguard/peers/print'
+# RouterOS-oldalon egy 'read' csoportu fiok kulcsos belepessel.
+set -euo pipefail
+ROUTER_HOST="${ROUTER_HOST:-192.0.2.1}"
+ROUTER_USER="${ROUTER_USER:-wg-ro}"
+ROUTER_KEY="${ROUTER_KEY:-$HOME/.ssh/id_router_ro}"
+exec ssh -i "$ROUTER_KEY" -o StrictHostKeyChecking=yes \
+     -o ConnectTimeout=10 "${ROUTER_USER}@${ROUTER_HOST}" "$1"

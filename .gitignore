@@ -1,0 +1,14 @@
+# A sajat eszkozeid nyilvantartasa (nevek, publikus kulcsok, IP-k)
+registry.md
+
+# Sajat router-wrapperek (a .example valtozatok vannak verziozva)
+bin/mikrotik-ssh.sh
+bin/mikrotik-ssh-admin.sh
+
+# PRIVAT KULCSOT tartalmazo generalt fajlok — soha ne kerulhessenek be
+*.conf
+*.png
+scratch/
+
+__pycache__/
+*.pyc
